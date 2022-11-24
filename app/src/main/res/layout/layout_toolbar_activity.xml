@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ll_title_bar_height"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/fl_toolbar_back"
+        android:layout_width="@dimen/ll_title_bar_height"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_toolbar_back"
+            android:layout_width="@dimen/iv_toolbar_icon_size"
+            android:layout_height="@dimen/iv_toolbar_icon_size"
+            android:layout_gravity="center"
+            android:contentDescription="@string/back"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_toolbar_back" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/white"
+        android:textSize="@dimen/tv_toolbar_title_size"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:id="@+id/fl_toolbar_close"
+        android:layout_width="@dimen/ll_title_bar_height"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_toolbar_close"
+            android:layout_width="@dimen/iv_toolbar_close_size"
+            android:layout_height="@dimen/iv_toolbar_close_size"
+            android:layout_gravity="center"
+            android:contentDescription="@string/close"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_toolbar_close"
+            android:visibility="invisible" />
+    </FrameLayout>
+</LinearLayout>

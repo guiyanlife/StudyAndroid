@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/inc_layout_toolbar_activity"
+        layout="@layout/layout_toolbar_activity" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical"
+        android:isScrollContainer="false"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_title_height"
+                android:background="@color/tv_list_title_background"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/tv_list_padding_horizontal"
+                android:text="Type 1"
+                android:textColor="@color/tv_list_title_text"
+                android:textSize="@dimen/tv_list_title_font_size" />
+
+            <TextView
+                android:id="@+id/tv_item"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/bg_list_item"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/tv_list_padding_horizontal"
+                android:text="Item 1"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_list_item_divider_height"
+                android:layout_marginHorizontal="@dimen/v_list_item_divider_margin_horizontal"
+                android:background="@color/v_list_item_divider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/bg_list_item"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/tv_list_padding_horizontal"
+                android:text="Item 2"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_title_height"
+                android:background="@color/tv_list_title_background"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/tv_list_padding_horizontal"
+                android:text="Type 2"
+                android:textColor="@color/tv_list_title_text"
+                android:textSize="@dimen/tv_list_title_font_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/bg_list_item"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/tv_list_padding_horizontal"
+                android:text="Item 3"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/v_list_item_divider_height"
+                android:layout_marginHorizontal="@dimen/v_list_item_divider_margin_horizontal"
+                android:background="@color/v_list_item_divider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tv_list_item_height"
+                android:background="@drawable/bg_list_item"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/tv_list_padding_horizontal"
+                android:text="Item 4"
+                android:textColor="@color/tv_list_item_text"
+                android:textSize="@dimen/tv_list_item_font_size" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
