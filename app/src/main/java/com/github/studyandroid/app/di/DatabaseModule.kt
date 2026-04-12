@@ -22,5 +22,6 @@ object DatabaseModule {
             .build()
 
     @Provides
+    @Singleton
     fun provideUserDao(db: AppDatabase): UserDao = db.userDao()
 }

@@ -1,6 +1,5 @@
 package com.github.studyandroid.app.data.remote.dto
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
