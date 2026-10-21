@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt)
@@ -9,12 +8,12 @@ plugins {
 
 android {
     namespace  = "com.github.studyandroid.app"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.github.studyandroid.app"
         minSdk        = 23
-        targetSdk     = 36
+        targetSdk     = 37
         versionCode   = 1
         versionName   = "1.0"
     }
