@@ -32,23 +32,26 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlin {
-        compilerOptions {
-            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
-        }
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
     }
     buildFeatures {
         compose = true
         buildConfig = true // 启用 BuildConfig，用于 BuildConfig.DEBUG 等条件编译
     }
 
-    ksp {
-        arg("room.schemaLocation", "$projectDir/schemas") // Room schema 导出目录，配合 exportSchema = true 生成版本 diff 文件。文件路径：app/schemas/com.github.studyandroid.app.data.local.AppDatabase/<version>.json
-        arg("room.incremental", "true")
+
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_25
     }
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas") // Room schema 导出目录，配合 exportSchema = true 生成版本 diff 文件。文件路径：app/schemas/com.github.studyandroid.app.data.local.AppDatabase/<version>.json
+    arg("room.incremental", "true")
 }
 
 dependencies {
