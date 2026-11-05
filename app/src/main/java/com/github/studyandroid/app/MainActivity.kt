@@ -1,7 +1,7 @@
 package com.github.studyandroid.app
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import com.github.studyandroid.app.core.ui.base.BaseActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.github.studyandroid.app.feature.MainScreen
@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /** Activity 入口 - @AndroidEntryPoint 启用 Hilt 注入 */
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

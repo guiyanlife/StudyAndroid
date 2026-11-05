@@ -12,6 +12,9 @@ import com.github.studyandroid.app.core.util.LogUtil
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
+/**
+ * ViewModel公共基类，统一管理状态、事件和调试日志
+ */
 abstract class BaseViewModel<S : BaseUiState, I : BaseIntent, E : BaseEffect>(initialState: S) :
     ViewModel() {
     private val tag = javaClass.simpleName
@@ -28,6 +31,7 @@ abstract class BaseViewModel<S : BaseUiState, I : BaseIntent, E : BaseEffect>(in
     val effect = _effect.receiveAsFlow()
 
     init {
+        LogUtil.d(tag, "[Lifecycle] init")
         LogUtil.d(tag, "[State][Init] $initialState")
     }
 
@@ -74,7 +78,7 @@ abstract class BaseViewModel<S : BaseUiState, I : BaseIntent, E : BaseEffect>(in
     }
 
     override fun onCleared() {
-        LogUtil.d(tag, "ViewModel cleared")
+        LogUtil.d(tag, "[Lifecycle] onCleared")
         _effect.close()
     }
 }
