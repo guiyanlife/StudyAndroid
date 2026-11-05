@@ -1,28 +1,16 @@
 package com.github.studyandroid.app.feature
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.github.studyandroid.app.core.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor() : ViewModel() {
-    private val _effect = Channel<MainEffect>()
-    val effect = _effect.receiveAsFlow()
+class MainViewModel @Inject constructor() :
+    BaseViewModel<MainUiState, MainIntent, MainEffect>(MainUiState) {
 
-    fun onIntent(intent: MainIntent) {
+    override fun handleIntent(intent: MainIntent) {
         when (intent) {
-            MainIntent.ExitApp -> viewModelScope.launch {
-                _effect.send(MainEffect.ExitApp)
-            }
+            MainIntent.ExitApp -> sendEffect(MainEffect.ExitApp)
         }
-    }
-
-    override fun onCleared() {
-        _effect.close()
-        super.onCleared()
     }
 }
