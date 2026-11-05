@@ -1,4 +1,4 @@
-package com.github.studyandroid.app.ui.navigation
+package com.github.studyandroid.app.navigation
 
 import kotlinx.serialization.Serializable
 

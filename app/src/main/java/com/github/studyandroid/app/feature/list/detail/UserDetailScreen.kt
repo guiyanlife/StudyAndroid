@@ -1,4 +1,4 @@
-package com.github.studyandroid.app.ui.user.detail
+package com.github.studyandroid.app.feature.list.detail
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,13 +27,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
+import com.github.studyandroid.app.core.ui.preview.AppPreview
 import com.github.studyandroid.app.domain.model.User
-import com.github.studyandroid.app.ui.theme.AppTheme
+import com.github.studyandroid.app.core.ui.theme.AppTheme
 
 @Composable
 fun UserDetailScreen(
@@ -143,7 +143,7 @@ private fun UserDetailRow(label: String, value: String) {
     )
 }
 
-@Preview(showBackground = true)
+@AppPreview
 @Composable
 private fun UserDetailPreview() {
     AppTheme {

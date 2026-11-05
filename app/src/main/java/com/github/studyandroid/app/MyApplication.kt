@@ -1,19 +1,27 @@
 package com.github.studyandroid.app
 
 import android.app.Application
-import com.github.studyandroid.app.server.NanoHttpServer
+import android.content.Context
+import com.github.studyandroid.app.core.manager.NanoHttpManager
 import dagger.hilt.android.HiltAndroidApp
 
 /** Hilt 入口 - 必须在 AndroidManifest 注册 */
 @HiltAndroidApp
 class MyApplication : Application() {
+    companion object {
+        lateinit var appContext: Context
+            private set
+    }
+
     override fun onCreate() {
         super.onCreate()
-        NanoHttpServer.start(this)
+        appContext = applicationContext
+
+        NanoHttpManager.start()
     }
 
     override fun onTerminate() {
-        NanoHttpServer.stop()
+        NanoHttpManager.stop()
         super.onTerminate()
     }
 }

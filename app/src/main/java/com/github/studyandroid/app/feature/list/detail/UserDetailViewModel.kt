@@ -1,11 +1,11 @@
-package com.github.studyandroid.app.ui.user.detail
+package com.github.studyandroid.app.feature.list.detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.github.studyandroid.app.domain.usecase.GetUserByIdUseCase
-import com.github.studyandroid.app.ui.navigation.UserDetailDestination
+import com.github.studyandroid.app.navigation.UserDetailDestination
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.SharingStarted

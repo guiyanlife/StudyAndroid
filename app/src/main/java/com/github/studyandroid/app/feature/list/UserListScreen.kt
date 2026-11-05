@@ -1,4 +1,4 @@
-package com.github.studyandroid.app.ui.user.list
+package com.github.studyandroid.app.feature.list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -38,13 +38,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
+import com.github.studyandroid.app.core.ui.preview.AppPreview
 import com.github.studyandroid.app.domain.model.User
-import com.github.studyandroid.app.ui.theme.AppTheme
+import com.github.studyandroid.app.core.ui.theme.AppTheme
 
 @Composable
 fun UserListScreen(
@@ -162,7 +162,7 @@ private fun UserItem(user: User, onClick: () -> Unit) {
     )
 }
 
-@Preview(showBackground = true)
+@AppPreview
 @Composable
 private fun UserListPreview() {
     AppTheme {

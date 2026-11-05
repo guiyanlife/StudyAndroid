@@ -1,4 +1,4 @@
-package com.github.studyandroid.app.ui.user.list
+package com.github.studyandroid.app.feature.list
 
 import com.github.studyandroid.app.domain.model.User
 

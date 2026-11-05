@@ -1,7 +1,7 @@
-package com.github.studyandroid.app.server
+package com.github.studyandroid.app.core.manager
 
-import android.content.Context
-import android.util.Log
+import com.github.studyandroid.app.core.util.AppUtil
+import com.github.studyandroid.app.core.util.LogUtil
 import fi.iki.elonen.NanoHTTPD
 
 /**
@@ -12,10 +12,10 @@ import fi.iki.elonen.NanoHTTPD
  *  - GET /avatars/{id}.jpg → 返回本地头像图片（来自 assets/avatars/）
  *
  * 使用方式：
- *   NanoHttpServer.start(context)   // Application.onCreate()
- *   NanoHttpServer.stop()           // Application.onTerminate()
+ *   NanoHttpManager.start()          // Application.onCreate()
+ *   NanoHttpManager.stop()           // Application.onTerminate()
  */
-object NanoHttpServer {
+object NanoHttpManager {
     const val PORT = 8080
     const val BASE_URL = "http://localhost:$PORT/"
     private const val TAG = "NanoHttpServer"
@@ -42,18 +42,16 @@ object NanoHttpServer {
 
     /**
      * 启动服务器（幂等：已运行则直接返回）。
-     * @param context Application Context，用于读取 assets 资源，不持有引用。
      */
-    fun start(context: Context) {
+    fun start() {
         if (mNanoHTTPD?.isAlive == true) {
-            Log.d(TAG, "Already running on $BASE_URL")
+            LogUtil.d(TAG, "Already running on $BASE_URL")
             return
         }
-        // 只持有 ApplicationContext，不持有 Activity/Fragment 引用
-        val appContext = context.applicationContext
+
         mNanoHTTPD = object : NanoHTTPD(PORT) {
             override fun serve(session: IHTTPSession): Response {
-                Log.d(TAG, "← ${session.method} ${session.uri}")
+                LogUtil.d(TAG, "← ${session.method} ${session.uri}")
                 return when {
                     // GET /users
                     session.uri == "/users" && session.method == Method.GET ->
@@ -76,29 +74,25 @@ object NanoHttpServer {
             /** 从 assets/avatars/avatar_{id}.jpg 读取并返回图片流，用 .use 确保流关闭 */
             private fun serveAvatar(id: Int?): Response {
                 if (id == null || id < 1 || id > 10) {
-                    return newFixedLengthResponse(
-                        Response.Status.NOT_FOUND,
-                        MIME_PLAINTEXT,
-                        "Avatar not found"
-                    )
+                    return newFixedLengthResponse(Response.Status.NOT_FOUND, MIME_PLAINTEXT, "Avatar not found")
                 }
                 return try {
-                    val bytes = appContext.assets.open("avatars/avatar_$id.jpg").use { it.readBytes() }
+                    val bytes = AppUtil.appContext.assets.open("avatars/avatar_$id.jpg").use { it.readBytes() }
                     newFixedLengthResponse(Response.Status.OK, "image/jpeg", bytes.inputStream(), bytes.size.toLong())
                 } catch (e: Exception) {
-                    Log.e(TAG, "Failed to serve avatar $id", e)
+                    LogUtil.e(TAG, "Failed to serve avatar $id: ${e.message}")
                     newFixedLengthResponse(Response.Status.INTERNAL_ERROR, MIME_PLAINTEXT, "Error")
                 }
             }
         }.apply {
             start()
-            Log.i(TAG, "Started → $BASE_URL")
+            LogUtil.i(TAG, "Started → $BASE_URL")
         }
     }
 
     fun stop() {
         mNanoHTTPD?.stop()
         mNanoHTTPD = null
-        Log.i(TAG, "Stopped")
+        LogUtil.i(TAG, "Stopped")
     }
 }

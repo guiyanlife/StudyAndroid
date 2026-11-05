@@ -1,4 +1,4 @@
-package com.github.studyandroid.app.ui.theme
+package com.github.studyandroid.app.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
