@@ -55,21 +55,12 @@ ksp {
 }
 
 dependencies {
-    // Core
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.lifecycle.runtime.compose)
-
     // Compose BOM（统一管理所有 Compose 版本）
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material.icons.core)
     debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
-
-    // Navigation Compose（Type-Safe）
-    implementation(libs.androidx.navigation.compose)
 
     // Room
     implementation(libs.androidx.room.runtime)
@@ -81,8 +72,6 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 
     // Retrofit + OkHttp + Kotlin Serialization
-    implementation(libs.retrofit.core)
-    implementation(libs.okhttp.core)
     implementation(libs.okhttp.logging)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.kotlin.serialization)

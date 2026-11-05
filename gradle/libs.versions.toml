@@ -5,9 +5,6 @@ kotlin                    = "2.4.21"
 ksp                       = "2.3.12"
 
 # AndroidX
-androidxActivity          = "1.13.0"
-androidxLifecycle         = "2.11.0"
-androidxNavigation        = "2.9.8"
 androidxRoom              = "2.8.5"
 
 # Compose
@@ -18,7 +15,6 @@ hilt                      = "2.60.1"
 hiltExt                   = "1.4.0"
 
 # Network
-retrofit                  = "3.0.0"
 okhttp                    = "5.5.1"
 kotlinxSerializationJson  = "1.12.0"
 retrofitSerializer        = "1.0.0"
@@ -30,21 +26,12 @@ coil                      = "3.6.3"
 nanohttpd                 = "2.3.1"
 
 [libraries]
-# Core
-androidx-activity-compose             = { group = "androidx.activity",  name = "activity-compose",            version.ref = "androidxActivity" }
-androidx-lifecycle-runtime-compose    = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose",   version.ref = "androidxLifecycle" }
-
 # Compose BOM
 androidx-compose-bom                  = { group = "androidx.compose",           name = "compose-bom",         version.ref = "androidxComposeBom" }
-androidx-compose-ui                   = { group = "androidx.compose.ui",        name = "ui" }
 androidx-compose-ui-tooling-preview   = { group = "androidx.compose.ui",        name = "ui-tooling-preview" }
-androidx-compose-ui-tooling           = { group = "androidx.compose.ui",        name = "ui-tooling" }
-androidx-compose-ui-test-manifest     = { group = "androidx.compose.ui",        name = "ui-test-manifest" }
 androidx-compose-material3            = { group = "androidx.compose.material3", name = "material3" }
 androidx-compose-material-icons-core  = { group = "androidx.compose.material",  name = "material-icons-core" }
-
-# Navigation (Type-Safe)
-androidx-navigation-compose           = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+androidx-compose-ui-tooling           = { group = "androidx.compose.ui",        name = "ui-tooling" }
 
 # Room
 androidx-room-runtime                 = { group = "androidx.room", name = "room-runtime",  version.ref = "androidxRoom" }
@@ -56,8 +43,6 @@ hilt-android-compiler                 = { group = "com.google.dagger", name = "h
 hilt-navigation-compose               = { group = "androidx.hilt",     name = "hilt-navigation-compose", version.ref = "hiltExt" }
 
 # Network
-retrofit-core                         = { group = "com.squareup.retrofit2",   name = "retrofit",                             version.ref = "retrofit" }
-okhttp-core                           = { group = "com.squareup.okhttp3",     name = "okhttp",                               version.ref = "okhttp" }
 okhttp-logging                        = { group = "com.squareup.okhttp3",     name = "logging-interceptor",                  version.ref = "okhttp" }
 kotlinx-serialization-json            = { group = "org.jetbrains.kotlinx",    name = "kotlinx-serialization-json",           version.ref = "kotlinxSerializationJson" }
 retrofit-kotlin-serialization         = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitSerializer" }
