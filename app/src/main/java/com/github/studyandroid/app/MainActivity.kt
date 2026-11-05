@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
-import com.github.studyandroid.app.navigation.AppNavHost
+import com.github.studyandroid.app.feature.MainScreen
 import com.github.studyandroid.app.core.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,11 +16,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                val navController = rememberNavController()
-                AppNavHost(
-                    navController = navController,
-                    modifier = Modifier.fillMaxSize()
-                )
+                MainScreen(onExitApp = { finishAndRemoveTask() })
             }
         }
     }
